@@ -1,0 +1,31 @@
+
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <title>My first X3DOM page</title>
+        <script type='text/javascript' src='../X3DOM/x3dom.js'> </script>
+        <link rel='stylesheet' type='text/css' href='../X3DOM/x3dom.css'/>
+    </head>
+    <body>
+    <h1>Using the Inline Node</h1>
+
+    <p>
+        This example includes an external x3d scene. You can even manipulate its content during runtime.
+    </p>
+    <x3d width='500px' height='400px'>
+        <Scene>
+            
+            <Viewpoint  position="0.00000 0.03140 0.09063" orientation="0.00000 0.00000 0.00000 0.00000" 
+	zNear="0.04018" zFar="0.15724" centerOfRotation="0.00138 0.05399 0.00798" fieldOfView="0.78540" description="defaultX3DViewpointNode"></Viewpoint>
+            <NavigationInfo headlight='true'></NavigationInfo>
+                    <environment tonemapping="reinhard"></environment>
+            
+          
+                    <Transform translation="0 0 0">
+                        <Inline id="inline" url="./Avocado/glTF-Binary/Avocado.glb" nameSpaceName="gltf" mapDEFToID="true"></Inline>
+                    </Transform>
+             
+        </Scene>
+    </x3d>
+    </body>
+    </html>

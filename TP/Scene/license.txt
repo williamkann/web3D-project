@@ -1,0 +1,11 @@
+Model Information:
+* title:	Daniel 23.11
+* source:	https://sketchfab.com/3d-models/daniel-2311-19575cc0272543478a2d4a3c8bd559ae
+* author:	schodyholzhit (https://sketchfab.com/schodyholzhit)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Daniel 23.11" (https://sketchfab.com/3d-models/daniel-2311-19575cc0272543478a2d4a3c8bd559ae) by schodyholzhit (https://sketchfab.com/schodyholzhit) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

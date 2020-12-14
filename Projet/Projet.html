@@ -1,0 +1,39 @@
+
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <title>Project Web3D</title>
+        <script type='text/javascript' src='../X3DOM/x3dom.js'> </script>
+        <link rel='stylesheet' type='text/css' href='../X3DOM/x3dom.css'/>
+        <script type="text/javascript">
+            function livingRoom() {
+                console.log('Clicked living room');
+            }
+            function bedroom() {
+                console.log('Clicked bedroom');
+            }
+            function kitchen() {
+                console.log('Clicked kitchen');
+            }
+            function bathroom() {
+                console.log('Clicked bathroom');
+            }
+        </script>
+    </head>
+    <body>
+        <img id="map" src="plan.png" width="30%" heigh="20%" alt="my_plan" usemap="#map">
+        <map name="map">
+            <area shape="rect" coords="24,115,240,270" href='#' onclick="livingRoom()"/>
+            <area shape="rect" coords="250,40,345,150" href='#' onclick="bedroom()"/>
+            <area shape="rect" coords="150,250,240,450" href='#' onclick="kitchen()"/>
+            <area shape="rect" coords="150,10,240,110" href='#' onclick="bathroom()"/>
+        </map> 
+        <x3d width='100%' height='100%'>
+            <Scene>
+             
+                <inline url='./models/Avocado/glTF/Avocado.gltf' />
+                
+            </Scene>
+        </x3d>
+    </body>
+</html>

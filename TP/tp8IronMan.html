@@ -1,0 +1,28 @@
+
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <title>My first X3DOM page</title>
+        <script type='text/javascript' src='../X3DOM/x3dom.js'> </script>
+        <link rel='stylesheet' type='text/css' href='../X3DOM/x3dom.css'/>
+    </head>
+    <body>
+    <h1>Using the Inline Node</h1>
+
+    <p>
+        This example includes an external x3d scene. You can even manipulate its content during runtime.
+    </p>
+    <x3d width='500px' height='400px'>
+        <Scene>
+            
+
+            <NavigationInfo headlight='true'></NavigationInfo>
+            <environment tonemapping="reinhard"></environment>
+        
+            <Inline id="inline" url="mymodel.x3d"></Inline>
+             
+             
+        </Scene>
+    </x3d>
+    </body>
+</html>

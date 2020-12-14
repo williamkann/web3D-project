@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <script type='text/javascript' src='../X3DOM/x3dom-full.js'></script>
+        <script>
+            function changeColor()
+            {
+                if(document.getElementById("color").getAttribute('diffuseColor')=="1 0 0") {
+                    document.getElementById("color").setAttribute('diffuseColor', '0 0 1');
+                } else {
+                    document.getElementById("color").setAttribute('diffuseColor', '1 0 0');
+                }  
+            }
+            function setRight() {
+                console.log("Hello");
+                document.getElementById("right").setAttribute("set_bind","true");
+            }
+        </script>
+        <link rel='stylesheet' type='text/css' href='../X3DOM/x3dom.css'/>
+        <style>
+            x3d
+            {
+                border:2px solid darkorange;        
+                background: rgba(128, 128, 128, 0.4);
+            }
+            body
+            {     
+                font-size:110%;
+                font-family:verdana, sans-serif;
+                background-image: url('./pattern.png');
+                margin: 3em;
+                color: lightgray;
+            }
+            
+            h1
+            {
+                color: darkorange;
+            }             
+        </style>
+    </head>
+    <body>
+        <h1>Hello X3DOM</h1>
+        <p>
+            This is my first html page with som 3D objects
+        </p>
+
+        <x3d width="600px" height="400px">
+  
+            <scene>
+                <Viewpoint id="right" position="0.08459 9.35641 -3.52851" orientation="-0.97999 0.16652 0.10904 1.94887" 
+	zNear="4.60589" zFar="17.09117" centerOfRotation="0.00000 0.00000 0.00000" fieldOfView="0.78540" description="defaultX3DViewpointNode"></Viewpoint>
+                <shape onclick="alert('Hello, click!');">
+                    <appearance>
+                        <material id="color" diffuseColor='1 0 0'>
+                        </material>
+                    </appearance>
+                    <box>
+                    </box>
+                </shape>
+                <transform translation='-3 0 0'>
+                    <shape onclick="changeColor();">
+                        <appearance>
+                            <material id="color" diffuseColor='0 1 0'>
+                            </material>
+                        </appearance>
+                        <cone></cone>
+                    </shape>
+                </transform>
+                <transform translation='3 0 0'>
+                    <shape onclick="changeColor();">
+                        <appearance>
+                            <material id="color" diffuseColor='0 0 1'>
+                            </material>
+                        </appearance>
+                        <sphere></sphere>
+                    </shape>
+                </transform>
+            </scene>
+        </x3d>
+        <button onclick="setRight();">Right</button>
+    </body>
+</html>
