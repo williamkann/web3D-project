@@ -8,31 +8,145 @@
         <script type="text/javascript">
             function livingRoom() {
                 console.log('Clicked living room');
+                document.getElementById('livingRoom').setAttribute('set_bind','true');
             }
             function bedroom() {
                 console.log('Clicked bedroom');
+                document.getElementById('bedroom').setAttribute('set_bind','true');
             }
-            function kitchen() {
-                console.log('Clicked kitchen');
+            function garden() {
+                console.log('Clicked garden');
+                document.getElementById('garden').setAttribute('set_bind','true');
+            }
+            function garage() {
+                console.log('Clicked garage');
+                document.getElementById('garage').setAttribute('set_bind','true');
             }
             function bathroom() {
                 console.log('Clicked bathroom');
+                document.getElementById('bathroom').setAttribute('set_bind','true');
             }
         </script>
     </head>
     <body>
         <img id="map" src="plan.png" width="30%" heigh="20%" alt="my_plan" usemap="#map">
         <map name="map">
-            <area shape="rect" coords="24,115,240,270" href='#' onclick="livingRoom()"/>
-            <area shape="rect" coords="250,40,345,150" href='#' onclick="bedroom()"/>
-            <area shape="rect" coords="150,250,240,450" href='#' onclick="kitchen()"/>
-            <area shape="rect" coords="150,10,240,110" href='#' onclick="bathroom()"/>
-        </map> 
-        <x3d width='100%' height='100%'>
+            <area shape="rect" coords="115,125,253,270" href='#' onclick="livingRoom()"/>
+            <area shape="rect" coords="15,115,110,213" href='#' onclick="bedroom()"/>
+            <area shape="rect" coords="250,180,345,260" href='#' onclick="garage()"/>
+            <area shape="rect" coords="45,214,110,280" href='#' onclick="bathroom()"/>
+            <area shape="rect" coords="115,5,253,123" href='#' onclick="garden()"/>
+        </map>
+        <x3d id='x3dcontext' showStat='false' showLog='false' style='width:100%; height:100%; border:0; margin:0; padding:0;'>
             <Scene>
-             
-                <inline url='./models/Avocado/glTF/Avocado.gltf' />
+                <!-- Default viewpoint  -->
+                <Viewpoint position="-9.93483 4.10323 45.29611" orientation="0.00000 0.00000 0.00000 0.00000" zNear="1.58146" zFar="46.40617" centerOfRotation="0.00000 0.00000 0.00000" fieldOfView="0.78540" description="defaultX3DViewpointNode"></Viewpoint>
                 
+                <!-- If bathroom selected -->
+                <Viewpoint id="bathroom" position="2.54322 4.53200 24.49541" orientation="-0.87313 0.47923 -0.08935 0.20990" zNear="1.58146" zFar="46.40617" centerOfRotation="0.00000 0.00000 0.00000" fieldOfView="0.78540" description="defaultX3DViewpointNode"></Viewpoint>
+                
+                <!-- If bedroom selected -->
+                <Viewpoint id="bedroom" position="-5.86063 3.53621 24.08693" orientation="-0.52327 -0.84968 0.06499 0.27746" zNear="1.58146" zFar="46.40617" centerOfRotation="0.00000 0.00000 0.00000" fieldOfView="0.78540" description="defaultX3DViewpointNode"></Viewpoint>
+                
+                <!-- If garden selected -->
+                <Viewpoint id="garden" position="-18.88153 8.79028 21.99846" orientation="-0.41528 -0.90951 -0.01855 0.75820" zNear="1.58146" zFar="46.40617" centerOfRotation="0.00000 0.00000 0.00000" fieldOfView="0.78540" description="defaultX3DViewpointNode"></Viewpoint>
+                
+                <!-- If living room selected -->
+                <Viewpoint id="livingRoom" position="-2.73491 4.65828 14.32195" orientation="-0.85997 -0.50981 -0.02328 0.36077" zNear="1.58146" zFar="46.40617" centerOfRotation="0.00000 0.00000 0.00000" fieldOfView="0.78540" description="defaultX3DViewpointNode"></Viewpoint>
+                
+                <!-- If garage selected -->
+                <Viewpoint id="garage" position="0.14754 10.20404 -0.24777" orientation="-0.59089 0.58152 0.55918 2.08317" zNear="1.58146" zFar="46.40617" centerOfRotation="0.00000 0.00000 0.00000" fieldOfView="0.78540" description="defaultX3DViewpointNode"></Viewpoint>
+                
+                <!-- Garage stuffs to interact with -->
+                <Transform translation="2 1.5 1.5">
+                    <shape> 
+                        <appearance> 
+                            <material diffuseColor='1 0 0'></material> 
+                        </appearance> 
+                        <box size="0.5 0.5 0.5"></box> 
+                    </shape>
+                </Transform>
+
+                <!-- Garden stuffs to interact with -->
+                <Transform translation="-15 1.6 8.5">
+                    <shape> 
+                        <appearance> 
+                            <material diffuseColor='1 0 0'></material> 
+                        </appearance> 
+                        <box size="0.5 0.5 0.5"></box> 
+                    </shape>
+                </Transform>
+                <Transform translation="-13 1.6 13">
+                    <shape> 
+                        <appearance> 
+                            <material diffuseColor='1 0 0'></material> 
+                        </appearance> 
+                        <box size="0.5 0.5 0.5"></box> 
+                    </shape>
+                </Transform>
+
+                <!-- Bedroom stuffs to interact with -->
+                <Transform translation="-1.5 1.5 18">
+                    <shape> 
+                        <appearance> 
+                            <material diffuseColor='1 0 0'></material> 
+                        </appearance> 
+                        <box size="0.5 0.5 0.5"></box> 
+                    </shape>
+                </Transform>
+
+                <!-- Bathroom stuffs to interact with -->
+                <Transform translation="1 1.5 15.5">
+                    <shape> 
+                        <appearance> 
+                            <material diffuseColor='1 0 0'></material> 
+                        </appearance> 
+                        <box size="0.5 0.5 0.5"></box> 
+                    </shape>
+                </Transform>
+
+                <!-- Living Room stuffs to interact with -->
+                <!-- On Sofa -->
+                <Transform translation="-1 2.36 9">
+                    <shape> 
+                        <appearance> 
+                            <material diffuseColor='1 0 0'></material> 
+                        </appearance> 
+                        <box size="0.5 0.5 0.5"></box> 
+                    </shape>
+                </Transform>
+
+                <!-- On TV table -->
+                <Transform translation="0.75 2.36 9">
+                    <shape> 
+                        <appearance> 
+                            <material diffuseColor='1 0 0'></material> 
+                        </appearance> 
+                        <box size="0.5 0.5 0.5"></box> 
+                    </shape>
+                </Transform>
+
+                <!-- On Kitchen table -->
+                <Transform translation="-4 2.9 9.25">
+                    <shape> 
+                        <appearance> 
+                            <material diffuseColor='1 0 0'></material> 
+                        </appearance> 
+                        <box size="0.5 0.5 0.5"></box> 
+                    </shape>
+                </Transform>
+
+                <!-- In Kitchen -->
+                <Transform translation="-4 2.9 4">
+                    <shape> 
+                        <appearance> 
+                            <material diffuseColor='1 0 0'></material> 
+                        </appearance> 
+                        <box size="0.5 0.5 0.5"></box> 
+                    </shape>
+                </Transform>
+    
+                <inline url='./models/house_scene.gltf' />     
             </Scene>
         </x3d>
     </body>
