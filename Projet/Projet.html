@@ -1,7 +1,7 @@
 
 <html>
     <head>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" charset="UTF-8"/>
         <title>Project Web3D</title>
         <script type='text/javascript' src='../X3DOM/x3dom.js'> </script>
         <link rel='stylesheet' type='text/css' href='../X3DOM/x3dom.css'/>
@@ -26,10 +26,53 @@
                 console.log('Clicked bathroom');
                 document.getElementById('bathroom').setAttribute('set_bind','true');
             }
+            function getToolboxInfo() {
+                document.getElementById('selected').innerHTML = 'Boîte à outils';
+                document.getElementById('details').innerHTML = "Une boîte à outils est une boîte destinée à ranger des outils pour les protéger et les transporter plus facilement. La version d'atelier sur roulettes est un meuble appelé servante";
+                document.getElementById('room').innerHTML = 'Garage';
+            }
+            function getCatInfo() {
+                document.getElementById('selected').innerHTML = 'Chat';
+                document.getElementById('details').innerHTML = "Le Chat domestique est la sous-espèce issue de la domestication du Chat sauvage, mammifère carnivore de la famille des Félidés. Il est l’un des principaux animaux de compagnie et compte aujourd’hui une cinquantaine de races différentes reconnues par les instances de certification.";
+                document.getElementById('room').innerHTML = 'Jardin';
+            }
+            function getGrillInfo() {
+                document.getElementById('selected').innerHTML = 'Grill';
+                document.getElementById('details').innerHTML = "Le barbecue est un appareil de cuisson. Les aliments sont placés sur une grille ou sur une broche et sont exposés au rayonnement d'une source de chaleur. La nourriture ainsi préparée est aussi appelée « grillade ». La cuisson est en principe réalisée en plein air.";
+                document.getElementById('room').innerHTML = 'Jardin';
+            }
+            function getWardrobeInfo() {
+                document.getElementById('selected').innerHTML = 'Armoire';
+                document.getElementById('details').innerHTML = "Une armoire est un meuble fermé, généralement en bois, toujours adossé à un mur, que l'on trouve dans une habitation. Il est destiné à ranger des objets (l'armoire ferme à clé), spécialement les vêtements et le linge de maison.";
+                document.getElementById('room').innerHTML = 'Chambre';
+            }
+            function getHumanInfo() {
+                document.getElementById('selected').innerHTML = 'Personne';
+                document.getElementById('details').innerHTML = " Une boîte à outils est une boîte destinée à ranger des outils pour les protéger et les transporter plus facilement. La version d'atelier sur roulettes est un meuble appelé servante";
+                document.getElementById('room').innerHTML = 'Salle de bain';
+            }
+            function getControllerInfo() {
+                document.getElementById('selected').innerHTML = 'Manette de jeu';
+                document.getElementById('details').innerHTML = "Une manette de jeu est un contrôleur de jeu tenu à deux mains où les doigts sont utilisés pour fournir une entrée. Une manette comporte divers interrupteurs et détecteurs dont l'actionnement permet au joueur l'interaction avec le jeu vidéo.";
+                document.getElementById('room').innerHTML = 'Salon';
+            }
+            function getDrinkInfo() {
+                document.getElementById('selected').innerHTML = 'Boisson';
+                document.getElementById('details').innerHTML = "Une boisson, ou un breuvage, est un liquide destiné à la consommation. On trouve des boissons froides ou chaudes, gazeuses, alcoolisées ou non alcoolisées.";
+                document.getElementById('room').innerHTML = 'Salon';
+            }
+            function getFruitInfo() {
+                document.getElementById('selected').innerHTML = 'Fruits';
+                document.getElementById('details').innerHTML = "Un fruit est un aliment végétal, à la saveur sucrée, généralement consommé cru";
+                document.getElementById('room').innerHTML = 'Cuisine';
+            }
+
         </script>
     </head>
     <body>
-        <img id="map" src="plan.png" width="30%" heigh="20%" alt="my_plan" usemap="#map">
+        <div>
+            <img id="map" src="plan.png" width="30%" heigh="20%" alt="my_plan" usemap="#map">
+        </div>
         <map name="map">
             <area shape="rect" coords="115,125,253,270" href='#' onclick="livingRoom()"/>
             <area shape="rect" coords="15,115,110,213" href='#' onclick="bedroom()"/>
@@ -55,98 +98,51 @@
                 <Viewpoint id="livingRoom" position="-2.73491 4.65828 14.32195" orientation="-0.85997 -0.50981 -0.02328 0.36077" zNear="1.58146" zFar="46.40617" centerOfRotation="0.00000 0.00000 0.00000" fieldOfView="0.78540" description="defaultX3DViewpointNode"></Viewpoint>
                 
                 <!-- If garage selected -->
-                <Viewpoint id="garage" position="0.14754 10.20404 -0.24777" orientation="-0.59089 0.58152 0.55918 2.08317" zNear="1.58146" zFar="46.40617" centerOfRotation="0.00000 0.00000 0.00000" fieldOfView="0.78540" description="defaultX3DViewpointNode"></Viewpoint>
+                <Viewpoint id="garage" position="7.06991 8.62694 3.14411" orientation="-0.37834 0.78703 0.48729 1.52638" zNear="1.58146" zFar="46.40617" centerOfRotation="0.00000 0.00000 0.00000" fieldOfView="0.78540" description="defaultX3DViewpointNode"></Viewpoint>
                 
                 <!-- Garage stuffs to interact with -->
-                <Transform translation="2 1.5 1.5">
-                    <shape> 
-                        <appearance> 
-                            <material diffuseColor='1 0 0'></material> 
-                        </appearance> 
-                        <box size="0.5 0.5 0.5"></box> 
-                    </shape>
+                <Transform translation="2 1.5 1.5" scale="0.005 0.005 0.005">
+                    <inline nameSpaceName="Toolbox" mapDEFToID="true" onclick='getToolboxInfo();' url='./models/Toolbox/toolbox.gltf' />
                 </Transform>
 
                 <!-- Garden stuffs to interact with -->
-                <Transform translation="-15 1.6 8.5">
-                    <shape> 
-                        <appearance> 
-                            <material diffuseColor='1 0 0'></material> 
-                        </appearance> 
-                        <box size="0.5 0.5 0.5"></box> 
-                    </shape>
+                <Transform translation="-15 1.6 8.5" scale="0.01 0.01 0.01">
+                    <inline nameSpaceName="Cat" mapDEFToID="true" onclick='getCatInfo();' url='./models/Cat/Cat.gltf' />
                 </Transform>
-                <Transform translation="-13 1.6 13">
-                    <shape> 
-                        <appearance> 
-                            <material diffuseColor='1 0 0'></material> 
-                        </appearance> 
-                        <box size="0.5 0.5 0.5"></box> 
-                    </shape>
+                <Transform translation="-13 1.6 13" scale="0.5 0.5 0.5">
+                    <inline nameSpaceName="Grill" mapDEFToID="true" onclick='getGrillInfo();' url='./models/Grill/Grill.gltf' />
                 </Transform>
 
                 <!-- Bedroom stuffs to interact with -->
-                <Transform translation="-1.5 1.5 18">
-                    <shape> 
-                        <appearance> 
-                            <material diffuseColor='1 0 0'></material> 
-                        </appearance> 
-                        <box size="0.5 0.5 0.5"></box> 
-                    </shape>
+                <Transform translation="-1.6 1.5 18" scale="0.1 0.1 0.1" rotation='0 1 0 1.5708'>
+                    <inline nameSpaceName="Wardrobe" mapDEFToID="true" onclick='getWardrobeInfo();' url='./models/Wardrobe/Wardrobe.gltf' />
                 </Transform>
 
                 <!-- Bathroom stuffs to interact with -->
-                <Transform translation="1 1.5 15.5">
-                    <shape> 
-                        <appearance> 
-                            <material diffuseColor='1 0 0'></material> 
-                        </appearance> 
-                        <box size="0.5 0.5 0.5"></box> 
-                    </shape>
+                <Transform translation="1 1.5 15.8" scale="0.25 0.25 0.25" rotation='0 1 0 4.7124'>
+                    <inline nameSpaceName="Human" mapDEFToID="true" onclick='getHumanInfo();' url='./models/Human/Human.gltf' />
                 </Transform>
 
                 <!-- Living Room stuffs to interact with -->
                 <!-- On Sofa -->
-                <Transform translation="-1 2.36 9">
-                    <shape> 
-                        <appearance> 
-                            <material diffuseColor='1 0 0'></material> 
-                        </appearance> 
-                        <box size="0.5 0.5 0.5"></box> 
-                    </shape>
+                <Transform translation="-1 2 9" scale="0.2 0.2 0.2" rotation='0 1 0 4.7124'>
+                    <inline nameSpaceName="Controller" mapDEFToID="true" onclick='getControllerInfo();' url='./models/Controller/Controller.gltf' />
                 </Transform>
 
                 <!-- On TV table -->
-                <Transform translation="0.75 2.36 9">
-                    <shape> 
-                        <appearance> 
-                            <material diffuseColor='1 0 0'></material> 
-                        </appearance> 
-                        <box size="0.5 0.5 0.5"></box> 
-                    </shape>
+                <Transform translation="0.75 2.36 9" scale="0.09 0.09 0.09">
+                    <inline nameSpaceName="Drink" mapDEFToID="true" onclick='getDrinkInfo();' url='./models/Drink/Drink.gltf' />
                 </Transform>
 
                 <!-- On Kitchen table -->
-                <Transform translation="-4 2.9 9.25">
-                    <shape> 
-                        <appearance> 
-                            <material diffuseColor='1 0 0'></material> 
-                        </appearance> 
-                        <box size="0.5 0.5 0.5"></box> 
-                    </shape>
+                <Transform translation="-4 2.89 9.25" scale="0.02 0.02 0.02">
+                    <inline nameSpaceName="Fruit" mapDEFToID="true" onclick='getFruitInfo();' url='./models/Fruit/Fruit.gltf' />  
                 </Transform>
 
-                <!-- In Kitchen -->
-                <Transform translation="-4 2.9 4">
-                    <shape> 
-                        <appearance> 
-                            <material diffuseColor='1 0 0'></material> 
-                        </appearance> 
-                        <box size="0.5 0.5 0.5"></box> 
-                    </shape>
-                </Transform>
-    
-                <inline url='./models/house_scene.gltf' />     
+                <inline url='./models/House/house_scene.gltf' />
+                <p>Sélection : <label id="selected"></label> </p>
+                <p>Détails : <label id="details"></label> </p>
+                <p>Lieu : <label id="room"></label> </p>
             </Scene>
         </x3d>
     </body>
