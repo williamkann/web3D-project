@@ -1,0 +1,73 @@
+/*
+  COLORS :
+  - Efrei deep blue : #405274
+  - Efrei light blue : #6B8EC9
+  - Efrei light purple : #B1B1D9
+*/
+
+/* Import the font */
+@font-face
+{
+    font-family: Montserrat;
+    src:url("../fonts/Montserrat-Medium.ttf");
+}
+*
+{ 
+    font-family: Montserrat;
+}
+
+/* Changes the mouse's cursor on Pointer */
+.pointer {
+  cursor: pointer;
+}
+
+/* Zoom effect when hovering */
+.zoom {
+  transition: transform 0.2s;
+}
+.zoom:hover {
+  transform: scale(1.2);
+}
+.zoom-sm {
+  transition: transform 0.2s;
+}
+.zoom-sm:hover {
+  transform: scale(1.1);
+}
+.zoom-xs {
+  transition: transform 0.2s;
+}
+.zoom-xs:hover {
+  transform: scale(1.05);
+}
+
+/* Headers */
+h1 {
+    color: #6B8EC9;
+}
+p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* Dropdown list color */
+nav {
+  background-color: #6B8EC9 !important;
+}
+
+/* Dropdown list color */
+.dropdown-content li > a, .dropdown-content li > span {
+    color: #6B8EC9 !important;
+}
+
+.fixed-box {
+  z-index: 1;
+  position: fixed;
+  border: 1px solid blue;
+  background-color: rgba(255,200,200,0.5);  
+  max-width: 400px;
+  max-height: 600px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}

@@ -1,0 +1,279 @@
+<html>
+
+<head>
+    <!-- Some meta data -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" charset="UTF-8" />
+    <link rel="icon" href="./images/logo.ico" />
+    <title>Projet Web3D - Zoo</title>
+
+    <!--Import some custom css -->
+    <link rel="stylesheet" href="css/general.css" />
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Add X3DOM library -->
+    <script type='text/javascript' src='../X3DOM/x3dom.js'> </script>
+    <link rel='stylesheet' type='text/css' href='../X3DOM/x3dom.css' />
+
+    <!-- Add JQuery library -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+
+    <script type="text/javascript">
+        // We set-up some javascript UI 
+        $(document).ready(function ()) {
+            $(".dropdown-button").dropdown()
+        });
+    </script>
+</head>
+
+<body>
+    <!--Navbar -->
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <a href="maison.html" class="brand-logo center">Web 3D</a>
+                <ul id="nav-mobile" class="left hide-on-med-and-down">
+                    <li><a href="sujet.html">Sujet</a></li>
+                    <li><a href="maison.html">Maison</a></li>
+                    <li><a href="zoo.html">Zoo</a></li>
+                    <li><a href="test.html">Test</a></li>
+                    <li><a href="test2.html">Test2</a></li>
+                </ul>
+                <ul class="right">
+                    <!-- Dropdown Trigger -->
+                    <li>
+                        <a id="navbar-dropdown-trigger" class="dropdown-button"
+                            data-activates="navbar-dropdown">Navigation
+                            mode
+                            <i class="material-icons right">arrow_drop_down</i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Navbar's Dropdown Structure -->
+    <ul id="navbar-dropdown" class="dropdown-content">
+        <li><a onclick="setNavigationMode('examine')"><i class="material-icons">visibility</i>examine</a></li>
+        <li><a onclick="setNavigationMode('walk')"><i class="material-icons">directions_walk</i>walk</a></li>
+        <li><a onclick="setNavigationMode('fly')"><i class="material-icons">flight</i>fly</a></li>
+        <li><a onclick="setNavigationMode('look-at')"><i class="material-icons">zoom_out_map</i>look-at</a></li>
+        <li><a onclick="setNavigationMode('look-around')"><i
+                    class="material-icons">youtube_searched_for</i>look-around</a></li>
+        <li><a onclick="setNavigationMode('turntable')"><i class="material-icons">keyboard_return</i>turntable</a></li>
+        <li><a onclick="setNavigationMode('game')"><i class="material-icons">gamepad</i>game</a></li>
+    </ul>
+
+    <!-- Stuff that is at the bottom left of the screen -->
+    <div class="fixed-box">
+        <!-- Additional informations -->
+        <p>Sélection : <label id="selected"></label> </p>
+        <p>Détails : <label id="details"></label> </p>
+        <p>Lieu : <label id="room"></label> </p>
+    </div>
+
+    <!-- Image of the map -->
+    <div>
+        <img id="map" src="images/plan.png" width="25%" heigh="25%" alt="my_plan" usemap="#map">
+    </div>
+
+    <!-- Adding interaction to the map -->
+    <map name="map">
+        <area shape="rect" coords="115,125,253,270" onclick="room('livingRoom')" />
+        <area shape="rect" coords="15,115,110,213" onclick="room('bedroom')" />
+        <area shape="rect" coords="250,180,345,260" onclick="room('garage')" />
+        <area shape="rect" coords="45,214,110,280" onclick="room('bathroom')" />
+        <area shape="rect" coords="115,5,253,123" onclick="room('garden')" />
+    </map>
+
+    <!-- Lots of 3D objects -->
+    <x3d id='x3dcontext' showStat='false' showLog='false'
+        style='width:100%; height:100%; border:0; margin:0; padding:0;'>
+        <Scene>
+            <!-- Navigation Info  -->
+            <navigationInfo type="examine" id="navType"></navigationInfo>
+
+            <!-- Default viewpoint  -->
+            <Viewpoint position="-9.93483 4.10323 45.29611" orientation="0.00000 0.00000 0.00000 0.00000"
+                zNear="1.58146" zFar="46.40617" centerOfRotation="0.00000 0.00000 0.00000" fieldOfView="0.78540"
+                description="defaultX3DViewpointNode"></Viewpoint>
+
+            <!-- If bathroom selected -->
+            <Viewpoint id="bathroom" position="2.54322 4.53200 24.49541" orientation="-0.87313 0.47923 -0.08935 0.20990"
+                zNear="1.58146" zFar="46.40617" centerOfRotation="0.00000 0.00000 0.00000" fieldOfView="0.78540"
+                description="defaultX3DViewpointNode"></Viewpoint>
+
+            <!-- If bedroom selected -->
+            <Viewpoint id="bedroom" position="-5.86063 3.53621 24.08693" orientation="-0.52327 -0.84968 0.06499 0.27746"
+                zNear="1.58146" zFar="46.40617" centerOfRotation="0.00000 0.00000 0.00000" fieldOfView="0.78540"
+                description="defaultX3DViewpointNode"></Viewpoint>
+
+            <!-- If garden selected -->
+            <Viewpoint id="garden" position="-18.88153 8.79028 21.99846"
+                orientation="-0.41528 -0.90951 -0.01855 0.75820" zNear="1.58146" zFar="46.40617"
+                centerOfRotation="0.00000 0.00000 0.00000" fieldOfView="0.78540" description="defaultX3DViewpointNode">
+            </Viewpoint>
+
+            <!-- If living room selected -->
+            <Viewpoint id="livingRoom" position="-2.73491 4.65828 14.32195"
+                orientation="-0.85997 -0.50981 -0.02328 0.36077" zNear="1.58146" zFar="46.40617"
+                centerOfRotation="0.00000 0.00000 0.00000" fieldOfView="0.78540" description="defaultX3DViewpointNode">
+            </Viewpoint>
+
+            <!-- If garage selected -->
+            <Viewpoint id="garage" position="7.06991 8.62694 3.14411" orientation="-0.37834 0.78703 0.48729 1.52638"
+                zNear="1.58146" zFar="46.40617" centerOfRotation="0.00000 0.00000 0.00000" fieldOfView="0.78540"
+                description="defaultX3DViewpointNode"></Viewpoint>
+
+            <!-- Garage stuffs to interact with -->
+            <Transform translation="2 1.5 1.5" scale="0.005 0.005 0.005">
+                <inline nameSpaceName="Toolbox" mapDEFToID="true" onclick="getInfo('toolbox')"
+                    url='models/Toolbox/toolbox.gltf' />
+            </Transform>
+
+            <!-- Garden stuffs to interact with -->
+            <Transform translation="-15 1.6 8.5" scale="0.01 0.01 0.01">
+                <inline nameSpaceName="Cat" mapDEFToID="true" onclick='getCatInfo()' url='models/Cat/Cat.gltf' />
+            </Transform>
+            <Transform translation="-13 1.6 13" scale="0.5 0.5 0.5">
+                <inline nameSpaceName="Grill" mapDEFToID="true" onclick="getInfo('grill')"
+                    url='models/Grill/Grill.gltf' />
+            </Transform>
+
+            <!-- Bedroom stuffs to interact with -->
+            <Transform translation="-1.6 1.5 18" scale="0.1 0.1 0.1" rotation='0 1 0 1.5708'>
+                <inline nameSpaceName="Wardrobe" mapDEFToID="true" onclick="getInfo('wardrobe')"
+                    url='models/Wardrobe/Wardrobe.gltf' />
+            </Transform>
+
+            <!-- Bathroom stuffs to interact with -->
+            <Transform translation="1 1.5 15.8" scale="0.25 0.25 0.25" rotation='0 1 0 4.7124'>
+                <inline nameSpaceName="Human" mapDEFToID="true" onclick="getInfo('human')"
+                    url='models/Human/Human.gltf' />
+            </Transform>
+
+            <!-- Living Room stuffs to interact with -->
+            <!-- On Sofa -->
+            <Transform translation="-1 2 9" scale="0.2 0.2 0.2" rotation='0 1 0 4.7124'>
+                <inline nameSpaceName="Controller" mapDEFToID="true" onclick="getInfo('controller')"
+                    url='models/Controller/Controller.gltf' />
+            </Transform>
+
+            <!-- On TV table -->
+            <Transform translation="0.75 2.36 9" scale="0.09 0.09 0.09">
+                <inline nameSpaceName="Drink" mapDEFToID="true" onclick="getInfo('drink')"
+                    url='models/Drink/Drink.gltf' />
+            </Transform>
+
+            <!-- On Kitchen table -->
+            <Transform translation="-4 2.89 9.25" scale="0.02 0.02 0.02">
+                <inline nameSpaceName="Fruit" mapDEFToID="true" onclick="getInfo('fruit')"
+                    url='models/Fruit/Fruit.gltf' />
+            </Transform>
+
+            <inline url='models/House/house_scene.gltf' />
+        </Scene>
+    </x3d>
+
+    <script>
+        /**
+         * Sets the new Navigation Mode of the 3D scene
+         * @param {String} newNavigationMode
+         */
+        function setNavigationMode(newNavigationMode) {
+            document.getElementById('navType').type = newNavigationMode
+        }
+
+        // Data of many objects
+        const data = {
+            'toolbox': {
+                'selected': 'Boîte à outils',
+                'details': 'Une boîte à outils est une boîte destinée à ranger des outils pour les protéger et les transporter plus facilement. La version d\'atelier sur roulettes est un meuble appelé servante',
+                'room': 'Garage',
+            },
+            'chat': {
+                'selected': 'Chat',
+                'details': 'Le Chat domestique est la sous-espèce issue de la domestication du Chat sauvage, mammifère carnivore de la famille des Félidés. Il est l\’un des principaux animaux de compagnie et compte aujourd\’hui une cinquantaine de races différentes reconnues par les instances de certification.',
+                'room': 'Jardin',
+            },
+            'grill': {
+                'selected': 'Grill',
+                'details': 'Le barbecue est un appareil de cuisson. Les aliments sont placés sur une grille ou sur une broche et sont exposés au rayonnement d\'une source de chaleur.La nourriture ainsi préparée est aussi appelée « grillade ».La cuisson est en principe réalisée en plein air.',
+                'room': 'Jardin',
+            },
+            'wardrobe': {
+                'selected': 'Armoire',
+                'details': 'Une armoire est un meuble fermé, généralement en bois, toujours adossé à un mur, que l\'on trouve dans une habitation.Il est destiné à ranger des objets(l\'armoire ferme à clé), spécialement les vêtements et le linge de maison.',
+                'room': 'Chambre',
+            },
+            'human': {
+                'selected': 'Personne',
+                'details': 'Une boîte à outils est une boîte destinée à ranger des outils pour les protéger et les transporter plus facilement. La version d\'atelier sur roulettes est un meuble appelé servante',
+                'room': 'Salle de bain',
+            },
+            'controller': {
+                'selected': 'Manette de jeu',
+                'details': 'Une manette de jeu est un contrôleur de jeu tenu à deux mains où les doigts sont utilisés pour fournir une entrée. Une manette comporte divers interrupteurs et détecteurs dont l\'actionnement permet au joueur l\'interaction avec le jeu vidéo.',
+                'room': 'Salon',
+            },
+            'drink': {
+                'selected': 'Boisson',
+                'details': 'Une boisson, ou un breuvage, est un liquide destiné à la consommation.On trouve des boissons froides ou chaudes, gazeuses, alcoolisées ou non alcoolisées.',
+                'room': 'Salon',
+            },
+            'fruit': {
+                'selected': 'Fruits',
+                'details': 'Un fruit est un aliment végétal, à la saveur sucrée, généralement consommé cru',
+                'room': 'Cuisine',
+            },
+            'default': {
+                'selected': 'X',
+                'details': 'Y',
+                'room': 'Z',
+            }
+        }
+
+        /**
+         * Sets the info of a given element that has been clicked
+         * @param {String} element
+         */
+        function getInfo(element) {
+            // Display a message in the console
+            console.log('Clicked on element : ', element)
+
+            // If the element is found
+            if (data[element] !== undefined) {
+                document.getElementById('selected').innerHTML = data[element].selected
+                document.getElementById('details').innerHTML = data[element].details
+                document.getElementById('room').innerHTML = data[element].room
+            }
+        }
+
+        /**
+         * Sets data about a room that has been clicked
+         * @param {String} room
+         */
+        function room(room) {
+            // Display a message in the console
+            console.log('Clicked on room : ', room)
+
+            // If the element is found
+            if (document.getElementById(room) !== undefined) {
+                document.getElementById(room).setAttribute('set_bind', 'true')
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,165 @@
+<html>
+
+<head>
+    <!-- Some meta data -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" charset="UTF-8" />
+    <link rel="icon" href="./images/logo.ico" />
+    <title>Projet Web3D - Sujet</title>
+
+    <!--Import some custom css -->
+    <link rel="stylesheet" href="css/general.css" />
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Add X3DOM library -->
+    <script type='text/javascript' src='../X3DOM/x3dom.js'> </script>
+    <link rel='stylesheet' type='text/css' href='../X3DOM/x3dom.css' />
+
+    <!-- Add JQuery library -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+
+    <script>
+        $(document).ready(function ()) {
+            $(".dropdown-button").dropdown()
+            $(".dropdown-content>li>a").css("color", 'blue')
+        });
+    </script>
+</head>
+
+<body>
+    <!--Navbar -->
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <a href="maison.html" class="brand-logo center">Web 3D</a>
+                <ul id="nav-mobile" class="left hide-on-med-and-down">
+                    <li><a href="sujet.html">Sujet</a></li>
+                    <li><a href="maison.html">Maison</a></li>
+                    <li><a href="zoo.html">Zoo</a></li>
+                    <li><a href="test.html">Test</a></li>
+                    <li><a href="test2.html">Test2</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <center style="margin: 50px">
+        <img src="images/logo-efrei-text.png" style="margin: 10px" />
+        <img src="images/logo-x3dom-text.png" style="margin: 10px" />
+    </center>
+
+    <!-- Text -->
+    <div class="container">
+        <!-- Presentation of the project -->
+        <h1>Projet</h1>
+        <p class="flow-text">
+            Le projet a été divisé en 2 parties distinctes :
+        </p>
+
+        <table>
+            <tbody>
+                <tr>
+                    <td>Partie 1</td>
+                    <td>modélisation d’un moyen de consultation de bâtiment. Le bâtiment présenté dans cette partie sera
+                        une maison avec diverses pièces</td>
+                </tr>
+                <tr>
+                    <td>Partie 2</td>
+                    <td>modélisation d’un zoo avec des animaux</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p class="flow-text">
+            La première phase du projet consistait d’abord à se familiariser avec les modèles récupérés depuis des sites
+            d’hébergement tels que <span><a href="https://sketchfab.com">Sketchfab</a></span>. Nous avons décidé
+            d’utiliser
+            majoritairement des modèles au format <span><a href="https://www.khronos.org/gltf">glTF</a></span>.
+        </p>
+
+        <p class="flow-text">
+            La deuxième phase a été d’obtenir ces modèles au format <span><a
+                    href="https://www.khronos.org/gltf">glTF</a></span> notamment en passant par <span><a
+                    href="https://www.blender.org">Blender</a></span> si besoin.
+            Donc il a fallu en apprendre plus sur ce logiciel.
+        </p>
+
+        <p class="flow-text">
+            La troisième phase du projet consiste à tout mettre en place sur le site. Dans un premier temps, les
+            primitives du type
+            box sont placées dans la scène afin d’avoir une prévisualisation du lieu de chaque composant. Ensuite, nous
+            avons mis en
+            place chaque modèle voulu. Enfin, nous avions modélisé la map permettant de pouvoir naviguer dans la scène
+            en
+            sélectionnant les pièces voulues.
+        </p>
+
+        <!-- Useful links -->
+        <h1>Liens utiles</h1>
+        <center>
+            <div class="row">
+                <!-- Github -->
+                <div class="col s12 m4 zoom-sm">
+                    <img src="images/logo-github.png" width="150" height="150" />
+                    <br>
+                    <a href="https://github.com/williamkann/web3D-project">Notre dépôt GitHub</a>
+                </div>
+
+                <!-- x3dom -->
+                <div class="col s12 m4 zoom-sm">
+                    <img src="images/logo-x3dom.png" width="150" height="150" />
+                    <br>
+                    <a href="https://www.x3dom.org">x3dom : bibliothèque pour afficher des objets 3D</a>
+                </div>
+
+                <!-- Nginx -->
+                <div class="col s12 m4 zoom-sm">
+                    <img src="images/logo-nginx.png" width="150" height="150" />
+                    <br>
+                    <a href="https://www.nginx.com">Serveur Nginx pour héberger le site</a>
+                </div>
+            </div>
+        </center>
+
+        <!-- Team members -->
+        <h1>Équipe</h1>
+        <p class="flow-text">
+            Le projet a été fait par les étudiants suivants (actuellement en M2 à <span><a
+                    href="https://www.efrei.fr">l'Efrei Paris</a></span>)
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Lien(s)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Théo ABDMEZIEM</td>
+                    <td><span><a href="https://github.com/Patatart">son dépôt GitHub</a></span></td>
+                </tr>
+                <tr>
+                    <td>Hugues BEGEOT</td>
+                    <td><span><a href="https://github.com/opsilonn">son dépôt GitHub</a></span></td>
+                </tr>
+                <tr>
+                    <td>William KANN</td>
+                    <td><span><a href="https://github.com/williamkann">son dépôt GitHub</a></span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
