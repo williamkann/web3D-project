@@ -91,6 +91,41 @@
             <area shape="rect" coords="115,5,253,123" onclick="room('garden')" />
         </map>
 
+        Objets à trouver :
+        <p><label>
+                <input id="checkbox-boîte-à-outils" type="checkbox" disabled="disabled" />
+                <span>Toolbox</span>
+            </label>
+            <label>
+                <input id="checkbox-chat" type="checkbox" disabled="disabled" />
+                <span>Chat</span>
+            </label>
+            <label>
+                <input id="checkbox-grill" type="checkbox" disabled="disabled" />
+                <span>Grill</span>
+            </label>
+            <label>
+                <input id="checkbox-armoire" type="checkbox" disabled="disabled" />
+                <span>Armoire</span>
+            </label>
+            <label>
+                <input id="checkbox-humain" type="checkbox" disabled="disabled" />
+                <span>Humain</span>
+            </label>
+            <label>
+                <input id="checkbox-manette" type="checkbox" disabled="disabled" />
+                <span>Manette</span>
+            </label>
+            <label>
+                <input id="checkbox-boisson" type="checkbox" disabled="disabled" />
+                <span>Boisson</span>
+            </label>
+            <label>
+                <input id="checkbox-fruit" type="checkbox" disabled="disabled" />
+                <span>Fruit</span>
+            </label>
+        </p>
+
         <!-- Additional informations -->
         <p>Sélection : <label id="selected"></label> </p>
         <p>Détails : <label id="details"></label> </p>
@@ -138,13 +173,13 @@
 
             <!-- Garage stuffs to interact with -->
             <Transform translation="2 1.5 1.5" scale="0.005 0.005 0.005">
-                <inline nameSpaceName="Toolbox" mapDEFToID="true" onclick="getInfo('toolbox')"
+                <inline nameSpaceName="Toolbox" mapDEFToID="true" onclick="getInfo('boîte-à-outils')"
                     url='models/Toolbox/toolbox.gltf' />
             </Transform>
 
             <!-- Garden stuffs to interact with -->
             <Transform translation="-15 1.6 8.5" scale="0.01 0.01 0.01">
-                <inline nameSpaceName="Cat" mapDEFToID="true" onclick='getCatInfo()' url='models/Cat/Cat.gltf' />
+                <inline nameSpaceName="Cat" mapDEFToID="true" onclick="getInfo('chat')" url='models/Cat/Cat.gltf' />
             </Transform>
             <Transform translation="-13 1.6 13" scale="0.5 0.5 0.5">
                 <inline nameSpaceName="Grill" mapDEFToID="true" onclick="getInfo('grill')"
@@ -153,26 +188,26 @@
 
             <!-- Bedroom stuffs to interact with -->
             <Transform translation="-1.6 1.5 18" scale="0.1 0.1 0.1" rotation='0 1 0 1.5708'>
-                <inline nameSpaceName="Wardrobe" mapDEFToID="true" onclick="getInfo('wardrobe')"
+                <inline nameSpaceName="Wardrobe" mapDEFToID="true" onclick="getInfo('armoire')"
                     url='models/Wardrobe/Wardrobe.gltf' />
             </Transform>
 
             <!-- Bathroom stuffs to interact with -->
             <Transform translation="1 1.5 15.8" scale="0.25 0.25 0.25" rotation='0 1 0 4.7124'>
-                <inline nameSpaceName="Human" mapDEFToID="true" onclick="getInfo('human')"
+                <inline nameSpaceName="Human" mapDEFToID="true" onclick="getInfo('humain')"
                     url='models/Human/Human.gltf' />
             </Transform>
 
             <!-- Living Room stuffs to interact with -->
             <!-- On Sofa -->
             <Transform translation="-1 2 9" scale="0.2 0.2 0.2" rotation='0 1 0 4.7124'>
-                <inline nameSpaceName="Controller" mapDEFToID="true" onclick="getInfo('controller')"
+                <inline nameSpaceName="Controller" mapDEFToID="true" onclick="getInfo('manette')"
                     url='models/Controller/Controller.gltf' />
             </Transform>
 
             <!-- On TV table -->
             <Transform translation="0.75 2.36 9" scale="0.09 0.09 0.09">
-                <inline nameSpaceName="Drink" mapDEFToID="true" onclick="getInfo('drink')"
+                <inline nameSpaceName="Drink" mapDEFToID="true" onclick="getInfo('boisson')"
                     url='models/Drink/Drink.gltf' />
             </Transform>
 
@@ -198,7 +233,7 @@
 
         // Data of many objects
         const data = {
-            'toolbox': {
+            'boîte-à-outils': {
                 'selected': 'Boîte à outils',
                 'details': 'Une boîte à outils est une boîte destinée à ranger des outils pour les protéger et les transporter plus facilement. La version d\'atelier sur roulettes est un meuble appelé servante',
                 'room': 'Garage',
@@ -213,22 +248,22 @@
                 'details': 'Le barbecue est un appareil de cuisson. Les aliments sont placés sur une grille ou sur une broche et sont exposés au rayonnement d\'une source de chaleur.La nourriture ainsi préparée est aussi appelée « grillade ».La cuisson est en principe réalisée en plein air.',
                 'room': 'Jardin',
             },
-            'wardrobe': {
+            'armoire': {
                 'selected': 'Armoire',
                 'details': 'Une armoire est un meuble fermé, généralement en bois, toujours adossé à un mur, que l\'on trouve dans une habitation.Il est destiné à ranger des objets(l\'armoire ferme à clé), spécialement les vêtements et le linge de maison.',
                 'room': 'Chambre',
             },
-            'human': {
+            'humain': {
                 'selected': 'Personne',
                 'details': 'Une boîte à outils est une boîte destinée à ranger des outils pour les protéger et les transporter plus facilement. La version d\'atelier sur roulettes est un meuble appelé servante',
                 'room': 'Salle de bain',
             },
-            'controller': {
+            'manette': {
                 'selected': 'Manette de jeu',
                 'details': 'Une manette de jeu est un contrôleur de jeu tenu à deux mains où les doigts sont utilisés pour fournir une entrée. Une manette comporte divers interrupteurs et détecteurs dont l\'actionnement permet au joueur l\'interaction avec le jeu vidéo.',
                 'room': 'Salon',
             },
-            'drink': {
+            'boisson': {
                 'selected': 'Boisson',
                 'details': 'Une boisson, ou un breuvage, est un liquide destiné à la consommation.On trouve des boissons froides ou chaudes, gazeuses, alcoolisées ou non alcoolisées.',
                 'room': 'Salon',
@@ -255,9 +290,13 @@
 
             // If the element is found
             if (data[element] !== undefined) {
+                // We set the info
                 document.getElementById('selected').innerHTML = data[element].selected
                 document.getElementById('details').innerHTML = data[element].details
                 document.getElementById('room').innerHTML = data[element].room
+
+                // We consider the object as found
+                document.getElementById('checkbox-' + element).checked = 'checked'
             }
         }
 
