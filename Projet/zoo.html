@@ -105,84 +105,32 @@
             <navigationInfo type="examine" id="navType"></navigationInfo>
 
             <!-- Default viewpoint  -->
-            <Viewpoint position="-9.93483 4.10323 45.29611" orientation="0.00000 0.00000 0.00000 0.00000"
-                zNear="1.58146" zFar="46.40617" centerOfRotation="0.00000 0.00000 0.00000" fieldOfView="0.78540"
+            <Viewpoint position="-9.21913 7.93343 34.74036" orientation="-0.98321 0.18173 -0.01647 0.11077" 
+                zNear="1.58146" zFar="46.40617" centerOfRotation="0.00000 0.00000 0.00000" fieldOfView="0.78540" 
                 description="defaultX3DViewpointNode"></Viewpoint>
 
-            <!-- If bathroom selected -->
-            <Viewpoint id="bathroom" position="2.54322 4.53200 24.49541" orientation="-0.87313 0.47923 -0.08935 0.20990"
-                zNear="1.58146" zFar="46.40617" centerOfRotation="0.00000 0.00000 0.00000" fieldOfView="0.78540"
-                description="defaultX3DViewpointNode"></Viewpoint>
+            <!-- 3D elements  -->
+            <!-- platform and grass  -->
+            <transform translation='-10 0 0'>
+                <shape>
+                    <appearance>
+                        <material diffuseColor='.5 .5 .5'></material>
+                    </appearance>
+                    <box size='1 2 3'></box>
+                </shape>
+            </transform>
 
-            <!-- If bedroom selected -->
-            <Viewpoint id="bedroom" position="-5.86063 3.53621 24.08693" orientation="-0.52327 -0.84968 0.06499 0.27746"
-                zNear="1.58146" zFar="46.40617" centerOfRotation="0.00000 0.00000 0.00000" fieldOfView="0.78540"
-                description="defaultX3DViewpointNode"></Viewpoint>
-
-            <!-- If garden selected -->
-            <Viewpoint id="garden" position="-18.88153 8.79028 21.99846"
-                orientation="-0.41528 -0.90951 -0.01855 0.75820" zNear="1.58146" zFar="46.40617"
-                centerOfRotation="0.00000 0.00000 0.00000" fieldOfView="0.78540" description="defaultX3DViewpointNode">
-            </Viewpoint>
-
-            <!-- If living room selected -->
-            <Viewpoint id="livingRoom" position="-2.73491 4.65828 14.32195"
-                orientation="-0.85997 -0.50981 -0.02328 0.36077" zNear="1.58146" zFar="46.40617"
-                centerOfRotation="0.00000 0.00000 0.00000" fieldOfView="0.78540" description="defaultX3DViewpointNode">
-            </Viewpoint>
-
-            <!-- If garage selected -->
-            <Viewpoint id="garage" position="7.06991 8.62694 3.14411" orientation="-0.37834 0.78703 0.48729 1.52638"
-                zNear="1.58146" zFar="46.40617" centerOfRotation="0.00000 0.00000 0.00000" fieldOfView="0.78540"
-                description="defaultX3DViewpointNode"></Viewpoint>
-
-            <!-- Garage stuffs to interact with -->
-            <Transform translation="2 1.5 1.5" scale="0.005 0.005 0.005">
-                <inline nameSpaceName="Toolbox" mapDEFToID="true" onclick="getInfo('toolbox')"
-                    url='models/Toolbox/toolbox.gltf' />
+            <Transform translation='-5 -2 0' scale=".02 .02 .02">
+                <inline nameSpaceName="Grass" mapDEFToID="true"
+                    url='models/Grass/scene.gltf' />
             </Transform>
 
-            <!-- Garden stuffs to interact with -->
-            <Transform translation="-15 1.6 8.5" scale="0.01 0.01 0.01">
-                <inline nameSpaceName="Cat" mapDEFToID="true" onclick='getCatInfo()' url='models/Cat/Cat.gltf' />
-            </Transform>
-            <Transform translation="-13 1.6 13" scale="0.5 0.5 0.5">
-                <inline nameSpaceName="Grill" mapDEFToID="true" onclick="getInfo('grill')"
-                    url='models/Grill/Grill.gltf' />
-            </Transform>
-
-            <!-- Bedroom stuffs to interact with -->
-            <Transform translation="-1.6 1.5 18" scale="0.1 0.1 0.1" rotation='0 1 0 1.5708'>
-                <inline nameSpaceName="Wardrobe" mapDEFToID="true" onclick="getInfo('wardrobe')"
-                    url='models/Wardrobe/Wardrobe.gltf' />
-            </Transform>
-
-            <!-- Bathroom stuffs to interact with -->
-            <Transform translation="1 1.5 15.8" scale="0.25 0.25 0.25" rotation='0 1 0 4.7124'>
-                <inline nameSpaceName="Human" mapDEFToID="true" onclick="getInfo('human')"
+            <!-- people  -->
+            <Transform scale="0.25 0.25 0.25">
+                <inline nameSpaceName="Human" mapDEFToID="true"
                     url='models/Human/Human.gltf' />
             </Transform>
-
-            <!-- Living Room stuffs to interact with -->
-            <!-- On Sofa -->
-            <Transform translation="-1 2 9" scale="0.2 0.2 0.2" rotation='0 1 0 4.7124'>
-                <inline nameSpaceName="Controller" mapDEFToID="true" onclick="getInfo('controller')"
-                    url='models/Controller/Controller.gltf' />
-            </Transform>
-
-            <!-- On TV table -->
-            <Transform translation="0.75 2.36 9" scale="0.09 0.09 0.09">
-                <inline nameSpaceName="Drink" mapDEFToID="true" onclick="getInfo('drink')"
-                    url='models/Drink/Drink.gltf' />
-            </Transform>
-
-            <!-- On Kitchen table -->
-            <Transform translation="-4 2.89 9.25" scale="0.02 0.02 0.02">
-                <inline nameSpaceName="Fruit" mapDEFToID="true" onclick="getInfo('fruit')"
-                    url='models/Fruit/Fruit.gltf' />
-            </Transform>
-
-            <inline url='models/House/house_scene.gltf' />
+            <!-- animals  -->
         </Scene>
     </x3d>
 
@@ -197,41 +145,6 @@
 
         // Data of many objects
         const data = {
-            'toolbox': {
-                'selected': 'Boîte à outils',
-                'details': 'Une boîte à outils est une boîte destinée à ranger des outils pour les protéger et les transporter plus facilement. La version d\'atelier sur roulettes est un meuble appelé servante',
-                'room': 'Garage',
-            },
-            'chat': {
-                'selected': 'Chat',
-                'details': 'Le Chat domestique est la sous-espèce issue de la domestication du Chat sauvage, mammifère carnivore de la famille des Félidés. Il est l\’un des principaux animaux de compagnie et compte aujourd\’hui une cinquantaine de races différentes reconnues par les instances de certification.',
-                'room': 'Jardin',
-            },
-            'grill': {
-                'selected': 'Grill',
-                'details': 'Le barbecue est un appareil de cuisson. Les aliments sont placés sur une grille ou sur une broche et sont exposés au rayonnement d\'une source de chaleur.La nourriture ainsi préparée est aussi appelée « grillade ».La cuisson est en principe réalisée en plein air.',
-                'room': 'Jardin',
-            },
-            'wardrobe': {
-                'selected': 'Armoire',
-                'details': 'Une armoire est un meuble fermé, généralement en bois, toujours adossé à un mur, que l\'on trouve dans une habitation.Il est destiné à ranger des objets(l\'armoire ferme à clé), spécialement les vêtements et le linge de maison.',
-                'room': 'Chambre',
-            },
-            'human': {
-                'selected': 'Personne',
-                'details': 'Une boîte à outils est une boîte destinée à ranger des outils pour les protéger et les transporter plus facilement. La version d\'atelier sur roulettes est un meuble appelé servante',
-                'room': 'Salle de bain',
-            },
-            'controller': {
-                'selected': 'Manette de jeu',
-                'details': 'Une manette de jeu est un contrôleur de jeu tenu à deux mains où les doigts sont utilisés pour fournir une entrée. Une manette comporte divers interrupteurs et détecteurs dont l\'actionnement permet au joueur l\'interaction avec le jeu vidéo.',
-                'room': 'Salon',
-            },
-            'drink': {
-                'selected': 'Boisson',
-                'details': 'Une boisson, ou un breuvage, est un liquide destiné à la consommation.On trouve des boissons froides ou chaudes, gazeuses, alcoolisées ou non alcoolisées.',
-                'room': 'Salon',
-            },
             'fruit': {
                 'selected': 'Fruits',
                 'details': 'Un fruit est un aliment végétal, à la saveur sucrée, généralement consommé cru',
