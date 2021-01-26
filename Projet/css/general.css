@@ -1,8 +1,8 @@
 /*
   COLORS :
-  - Efrei deep blue : #405274
-  - Efrei light blue : #6B8EC9
-  - Efrei light purple : #B1B1D9
+  - Efrei deep blue : #405274 rgba(64, 82, 116, 1)
+  - Efrei light blue : #6B8EC9 rgba(107, 142, 201, 1)
+  - Efrei light purple : #B1B1D9 rgba(177, 177, 217, 1)
 */
 
 /* Import the font */
@@ -43,7 +43,7 @@
 
 /* Headers */
 h1 {
-    color: #6B8EC9;
+    color: rgba(107, 142, 201, 1);
 }
 p {
   text-align: justify;
@@ -57,14 +57,14 @@ nav {
 
 /* Dropdown list color */
 .dropdown-content li > a, .dropdown-content li > span {
-    color: #6B8EC9 !important;
+    color: rgba(107, 142, 201, 1) !important;
 }
 
 .fixed-box {
   z-index: 1;
   position: fixed;
-  border: 1px solid blue;
-  background-color: rgba(255,200,200,0.5);  
+  border: 1px solid rgba(64, 82, 116, 1);
+  background-color: rgba(107, 142, 201, 0.5);  
   max-width: 400px;
   max-height: 600px;
   bottom: 0;
