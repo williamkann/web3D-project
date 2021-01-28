@@ -105,8 +105,8 @@
             <navigationInfo type="examine" id="navType"></navigationInfo>
 
             <!-- Default viewpoint  -->
-            <Viewpoint position="-9.21913 7.93343 34.74036" orientation="-0.98321 0.18173 -0.01647 0.11077" 
-                zNear="1.58146" zFar="46.40617" centerOfRotation="0.00000 0.00000 0.00000" fieldOfView="0.78540" 
+            <Viewpoint position="-9.21913 7.93343 34.74036" orientation="-0.98321 0.18173 -0.01647 0.11077"
+                zNear="1.58146" zFar="46.40617" centerOfRotation="0.00000 0.00000 0.00000" fieldOfView="0.78540"
                 description="defaultX3DViewpointNode"></Viewpoint>
 
             <!-- 3D elements  -->
@@ -144,84 +144,14 @@
                 </shape>
             </transform>
 
-            <!-- steps -->
-            <transform translation='-15.5 2.2 0'>
-                <shape>
-                    <appearance>
-                        <material diffuseColor='.5 .5 .5'></material>
-                    </appearance>
-                    <box size='5 .8 10'></box>
-                </shape>
-            </transform>
-            <transform translation='-16 1.4 0'>
-                <shape>
-                    <appearance>
-                        <material diffuseColor='.5 .5 .5'></material>
-                    </appearance>
-                    <box size='6 .8 10'></box>
-                </shape>
-            </transform>
-            <transform translation='-16.5 0.6 0'>
-                <shape>
-                    <appearance>
-                        <material diffuseColor='.5 .5 .5'></material>
-                    </appearance>
-                    <box size='7 .8 10'></box>
-                </shape>
-            </transform>
-            <transform translation='-17 -0.2 0'>
-                <shape>
-                    <appearance>
-                        <material diffuseColor='.5 .5 .5'></material>
-                    </appearance>
-                    <box size='8 .8 10'></box>
-                </shape>
-            </transform>
-
-            <transform translation='1.5 2.2 0'>
-                <shape>
-                    <appearance>
-                        <material diffuseColor='.5 .5 .5'></material>
-                    </appearance>
-                    <box size='5 .8 10'></box>
-                </shape>
-            </transform>
-            <transform translation='2 1.4 0'>
-                <shape>
-                    <appearance>
-                        <material diffuseColor='.5 .5 .5'></material>
-                    </appearance>
-                    <box size='6 .8 10'></box>
-                </shape>
-            </transform>
-            <transform translation='2.5 0.6 0'>
-                <shape>
-                    <appearance>
-                        <material diffuseColor='.5 .5 .5'></material>
-                    </appearance>
-                    <box size='7 .8 10'></box>
-                </shape>
-            </transform>
-            <transform translation='3 -0.2 0'>
-                <shape>
-                    <appearance>
-                        <material diffuseColor='.5 .5 .5'></material>
-                    </appearance>
-                    <box size='8 .8 10'></box>
-                </shape>
-            </transform>
-
-            <!-- grass -->
-            <transform translation='-5 -1.8 0' scale='.02 .02 .02'>
-                <inline nameSpaceName='Grass' mapDEFToID='true'
-                    url='models/Grass/scene.gltf' />
-            </transform>
+            <Transform translation='-5 -2 0' scale=".02 .02 .02">
+                <inline nameSpaceName="Grass" mapDEFToID="true" url='models/Grass/scene.gltf' />
+            </Transform>
 
             <!-- people  -->
-            <transform translation='0 -1 0' scale='0.25 0.25 0.25'>
-                <inline nameSpaceName='Human' mapDEFToID='true'
-                    url='models/Human/Human.gltf' />
-            </transform>
+            <Transform scale="0.25 0.25 0.25">
+                <inline nameSpaceName="Human" mapDEFToID="true" url='models/Human/Human.gltf' />
+            </Transform>
             <!-- animals  -->
         </Scene>
     </x3d>
